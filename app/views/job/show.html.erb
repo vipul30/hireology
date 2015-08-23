@@ -1,2 +1,20 @@
-<h1>Jobs#show</h1>
-<p>Find me in app/views/jobs/show.html.erb</p>
+
+<div class="row">
+
+	<div class="col-md-8 col-md-offset-2">
+		
+		<br/><br/>
+		<%= link_to 'Back to Manage Job Listings', '/job/index_admin' %> 
+		<br/><br/>
+		<h1><%= @job.title %></h1><br/>
+		<label>Is Active? </label>&nbsp;&nbsp;<%= @job.is_active? ? 'Yes' : 'No' %><br/>
+		<%= link_to "Edit", '/job/edit?id=' + @job.id.to_s %><br/> 
+		<br/><br/>
+		<%= @job.description.html_safe %></p>
+ 		<br/><br/>
+
+
+	 		
+	 
+	 </div>
+</div>
