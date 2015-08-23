@@ -19,4 +19,20 @@ development:
   host: <%= ENV['host'] %>
   port: 5432
 
+test:
+  <<: *default
+  database: <%= ENV['database'] %>
+  username: <%= ENV['username'] %>
+  password: <%= ENV['password'] %>
+  host: <%= ENV['host'] %>
+  port: 5432
+
+production:
+  <<: *default
+  database: <%= ENV['database'] %>
+  username: <%= ENV['username'] %>
+  password: <%= ENV['password'] %>
+  host: <%= ENV['host'] %>
+  port: 5432
+
 
