@@ -19,6 +19,5 @@
 //= require jquery.inputmask.extensions
 //= require jquery.inputmask.numeric.extensions
 //= require jquery.inputmask.date.extensions
-//= require bootbox
 //= require jquery_ujs
 //= require_tree .
