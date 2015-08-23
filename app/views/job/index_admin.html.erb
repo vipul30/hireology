@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-md-9 col-md-offset-2">
+
+        <h1>Manage Job Listings</h1>
+        <br/>
+
+
+        <%= link_to "Add a new job", '/job/new' %><br/>
+        <br/>
+
+        <%= paginate @jobs %>
+
+        <br/>
+
+        <table class="table table-responsive table-bordered table-striped">
+            <tbody>
+                <tr>
+                    <th>Job ID</th>
+                    <th>Title</th>
+                    <th>Is Active</th>
+                    <th></th>
+                </tr>
+                <% @jobs.each do |job| %>
+                    <tr>
+                        <td><%= job.id %></td>
+                        <td><%= job.title %></td>
+                        <td><%= job.is_active? ? 'Yes' : 'No' %></td>
+                        
+                        <td><%= link_to "Edit", '/job/edit?id=' + job.id.to_s %><br/>
+                            <%= link_to "Delete", '/job/delete?id=' + job.id.to_s, :data => {:confirm => 'Are you sure you want to delete this job?'} %><br/>
+                        </td>
+                    </tr>
+                <% end %>
+                
+            </tbody>
+        </table>    
+
+    </div>
+</div>  

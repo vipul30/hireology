@@ -1,0 +1,25 @@
+
+
+<br/><br/>
+
+<div class="row">
+
+	<div class="col-md-12 col-md-offset-2">
+
+		<h1>Add a job</h1>
+		<br/><br/>
+
+		<%= form_for(@job, :url => {:action => 'create'}) do |f| %>
+
+		 	<%= render(:partial => "job_form", :locals => {:f => f}) %>
+		 	<br/>
+		 	<button type="submit">Submit</button>
+
+		 	<br/><br/>
+
+		<% end %>
+
+
+	</div>
+
+</div>

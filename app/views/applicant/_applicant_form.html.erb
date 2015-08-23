@@ -1,0 +1,133 @@
+<div class="row">
+    <div class="col-md-6">
+
+        <% if @applicant.errors.any? %>
+          <div class="alert alert-danger fade in">
+            <p><b>Please correct the following <%= pluralize(@applicant.errors.count, "error") %>:</b></p>
+         
+            <ul>
+            <% @applicant.errors.messages.values.each do |msg| %>
+                <%msg.each do  |m| %>
+                    <li><%= m %></li>
+                <%end %>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <label>First Name</label><br/>
+        <%= f.text_field :first_name, :size =>"65" %>                                               
+       
+        <br/>
+        <br/>
+
+        <label>Last Name</label><br/>
+        <%= f.text_field :last_name, :size =>"65"  %>                                               
+
+        <br/>
+        <br/>
+    
+        <label>Email</label></br>
+        <%= f.text_field :email, :size =>"65"  %>                                                       
+       
+        <br/> 
+        <br/>                                            
+    
+        <label>Phone Number</label></br>
+        <%= f.text_field :phone_number, :size =>"65" %>                                                       
+
+        <br/> 
+        <br/>
+
+        <label>Address</label></br>
+        <%= f.text_field :address, :size =>"65"  %>                                                       
+        
+        <br/>
+        <br/>
+
+        <label>Please upload your resume.</label><br/>
+        <%= f.file_field :resume, :id => 'clear_resume' %> 
+        <button id="clearbtn1" type="button">Clear</button>
+
+        <br/>
+        <br/>
+
+        <label>Please upload your cover letter. (optional)</label><br/>
+        <%= f.file_field :cover_letter, :id => 'clear_cover' %>
+        <button id="clearbtn2" type="button">Clear</button>
+        
+        <br/>
+        <br/>
+
+        
+    </div>
+</div>  
+
+<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>                                                   
+
+<script>
+
+
+    $(document).ready(function(){ 
+
+        $("#clearbtn1").on("click", function () {
+            $('#clear_resume').val("");
+        });
+
+
+        $("#clearbtn2").on("click", function () {
+            $('#clear_cover').val("");
+        });
+
+        $("#applicant_phone_number").inputmask("(999) 999-9999");
+
+       
+     
+    geolocate();
+
+    try {
+         // Create the autocomplete object, restricting the search
+          // to geographical location types.
+          autocomplete = new google.maps.places.Autocomplete(
+              /** @type {HTMLInputElement} */(document.getElementById('applicant_address')),
+              { types: ['geocode'] });
+          // When the user selects an address from the dropdown,
+          // populate the address fields in the form.
+          google.maps.event.addListener(autocomplete, 'place_changed', function() {
+            var place = autocomplete.getPlace();
+            console.log('lat= ', place.geometry.location.lat());
+            console.log('lng= ', place.geometry.location.lng());
+            
+          });
+
+          // [START region_geolocation]
+          // Bias the autocomplete object to the user's geographical location,
+          // as supplied by the browser's 'navigator.geolocation' object.
+          function geolocate() {
+            console.log('comes in geolocate');
+
+            if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(function(position) {
+                var geolocation = new google.maps.LatLng(
+                    position.coords.latitude, position.coords.longitude);
+                console.log('user lng= ', position.coords.longitude);
+
+                var circle = new google.maps.Circle({
+                  center: geolocation,
+                  radius: position.coords.accuracy
+                });
+                autocomplete.setBounds(circle.getBounds());
+              });
+            }
+          }
+        } catch (Exception) {
+          console.log(Exception);
+        } 
+         
+    });
+
+
+
+</script>
+                                   

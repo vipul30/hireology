@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+
+    	<br/><br/>
+
+    	<%= link_to 'Back to All Applications', '/applicant/index' %>
+
+    	<br/><br/>
+    	<label>Job Title: </label>
+        <%= @applicant.job.title %>                                             
+       
+        <br/>
+        <br/>
+
+        <label>Name: </label>
+        <%= @applicant.first_name %> <%= @applicant.last_name %>                                             
+       
+        <br/>
+        <br/>
+    
+        <label>Email: </label>
+        <%= @applicant.email  %>                                                       
+       
+        <br/> 
+        <br/>                                            
+    
+        <label>Phone Number</label></br>
+        <%= @applicant.phone_number %>                                                       
+
+        <br/> 
+        <br/>
+
+        <label>Address</label></br>
+        <%= @applicant.address  %>                                                       
+        
+        <br/>
+        <br/>
+
+        <label>Resume</label>
+        <%= link_to '(Download)', @applicant.resume.url(:original) %>
+        <br/>
+
+        <iframe src="http://docs.google.com/gview?url=<%= @applicant.resume.url(:original) %>&embedded=true" width="100%" height="800" >
+    		<p>Your browser does not support iframes.</p>
+  		</iframe>
+        <br/>
+        <br/>
+
+        <% if @applicant.cover_letter.exists? %>
+	        <label>Cover Letter</label>
+	        <%= link_to '(Download)', @applicant.cover_letter.url(:original) %>
+
+	        <iframe src="http://docs.google.com/gview?url=<%= @applicant.cover_letter.url(:original) %>&embedded=true" width="100%" height="800" >
+	    		<p>Your browser does not support iframes.</p>
+	  		</iframe>
+	        <br/>
+	        <br/>
+
+	     <% end %>
+
+        
+
+        
+    </div>
+</div>  
+
+
+                                   

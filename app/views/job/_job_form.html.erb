@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-md-6">
+
+        <% if @job.errors.any? %>
+          <div class="alert alert-danger fade in">
+            <p><b>Please correct the following <%= pluralize(@job.errors.count, "error") %>:</b></p>
+         
+            <ul>
+            <% @job.errors.messages.values.each do |msg| %>
+                <%msg.each do  |m| %>
+                    <li><%= m %></li>
+                <%end %>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+       <label>Title</label><br/>
+       <%= f.text_field :title, :size =>"65" %>                                               
+        
+        <br/>
+        <br/>
+    
+        <label>Location</label></br>
+        <%= f.text_field :location, :size =>"65" %>                                                       
+
+        <br/> 
+        <br/>                                            
+    
+        <label>Description</label><br/>
+        <%= f.text_area :description, :placeholder=>"Description of job", :class=>"tinymce"  %>
+        <%= tinymce %>
+        
+
+        <br/>
+        <br/>
+
+        
+        <label>Is active?</label>&nbsp;&nbsp;
+        <%= f.check_box :is_active %>
+    </div>
+</div>  
+
+<script>
+
+    $(document).ready(function(){ 
+        
+
+     });
+
+
+</script>
+
+
+                                                    
+

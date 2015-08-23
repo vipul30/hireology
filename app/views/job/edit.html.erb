@@ -1,0 +1,28 @@
+<br/><br/>
+
+<div class="row">
+
+	<div class="col-md-12 col-md-offset-2">
+
+		<%= link_to 'Back to Manage Job Listings', '/job/index_admin' %>
+
+		<br/><br/>
+		
+		<h1>Edit Job</h1>
+		<br/><br/>
+
+
+ 		<%= form_for(@job, :url => {:action => 'update', :id => @job.id}, :method => :POST) do |f| %>
+	
+		 	<%= render(:partial => "job_form", :locals => {:f => f}) %>
+		 	<br/>
+		 	<button type="submit">Submit</button>
+
+		 	<br/><br/>
+
+		<% end %>
+
+
+	</div>
+
+</div>
