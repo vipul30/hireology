@@ -48,7 +48,9 @@ class Applicant < ActiveRecord::Base
     								:length => { :maximum => 100 },
                                     :format => { with: EMAIL_REGEX, message: "Please enter a valid email address." }
 
-   
+   	def display_text_method
+    	"#{self.last_name}.camelize, #{self.first_name}.camelize"
+  	end
 
 	                   
 

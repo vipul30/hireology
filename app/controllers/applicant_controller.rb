@@ -1,6 +1,9 @@
 class ApplicantController < ApplicationController
+
+  
   def index
      @applicants = Applicant.all.order('id ASC').page params[:page]
+     @applicant = Applicant.new
   end
 
   def new
