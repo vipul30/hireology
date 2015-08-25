@@ -44,9 +44,6 @@ gem 'tinymce-rails'
 
 gem 'pry-byebug'
 
-# better way of displaying errors on dev
-gem 'better_errors', '~> 2.1.1'
-gem 'binding_of_caller', '~> 0.7.2'
 
 gem 'jquery-inputmask-rails'
 gem 'bootbox-rails', '~>0.1.0'
@@ -54,6 +51,7 @@ gem 'bootbox-rails', '~>0.1.0'
 gem 'kaminari', '~> 0.16.3'
 
 gem 'rails4-autocomplete'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -73,5 +71,19 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+# better way of displaying errors on dev
+gem 'better_errors', '~> 2.1.1'
+gem 'binding_of_caller', '~> 0.7.2'
+
+  # testing
+gem 'rspec', '~> 3.3.0'
+gem 'rspec-rails', '~> 3.3.3'
+gem 'webrat', '~> 0.7.3'
+gem 'cucumber', '~> 2.0.2'
+gem 'cucumber-rails'
+gem 'database_cleaner'
+
+
 end
 
