@@ -11,10 +11,15 @@ Hireology Careers Site
 
 Instructions
 1. clone the project https://github.com/vipul30/hireology.git
+
 2. copy the file application.yml to the config folder.  This file was emailed to Melissa Ryan
+
 3. bundle install
+
 4. rails s
+
 5. http://localhost:3000
+
 
 Testing via cucumber
 
